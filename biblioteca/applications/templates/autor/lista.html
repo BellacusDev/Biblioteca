@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <h1>Lista de autores</h1>
+  <p>
+  <form action="" method="GET">{% csrf_token %}
+    <input type="text" id="kword" name="kword" placeholder="Introduzca nombre">
+    <button type="submit">Consultar</button>
+  </form>
+  </p>
+  <ul>
+    {% for a in lista_autores %}
+      <li>{{ a.nombre }} {{ a.apellidos }} {{ nacionalidad }}</li>
+    {% endfor %}
+  </ul>
+
+</body>
+</html>

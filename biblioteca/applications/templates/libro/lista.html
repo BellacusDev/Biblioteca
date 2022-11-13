@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <h1>Lista de libros</h1>
+  <p>
+  <form action="" method="GET">{% csrf_token %}
+    <input type="text" id="kword" name="kword" placeholder="Introduzca nombre">
+    <input type="date" name="fecha1" id="fecha1" placeholder="Fecha inicio">
+    <input type="date" name="fecha2" id="fecha2" placeholder="Fecha fin">
+    <button type="submit">Consultar</button>
+  </form>
+  </p>
+  <ul>
+    {% for l in lista_libros %}
+      <li>{{ l.titulo }} {{ l.fecha }}</li>
+    {% endfor %}
+  </ul>
+
+</body>
+</html>
