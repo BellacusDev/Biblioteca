@@ -1,8 +1,13 @@
 from django.db import models
+from django.db.models.signals import post_save
+
+# appd terceros
+from PIL import Image
 
 # from local apps
 from applications.autor.models import Autor
 from .managers import LibroManager,CategoriaManager
+from .signals import optimize_image
 # Create your models here.
 ##
 
@@ -40,4 +45,9 @@ class Libro(models.Model):
 
     def __str__(self):
         return str(self.id) + ' - ' + self.titulo
+
+
+
+post_save.connect(optimize_image, sender=Libro)
+
 

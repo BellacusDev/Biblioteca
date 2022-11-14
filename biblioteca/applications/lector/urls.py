@@ -7,6 +7,11 @@ urlpatterns = [
     path(
         'prestamo/add/',
         views.RegistrarPrestamo.as_view(),
-        name='prestamo-add'
+        name='prestamo_add'
+    ),
+    path(
+        'prestamo/multiple-add/',
+        views.AddMultiplePrestamo.as_view(),
+        name='prestamo_add_multiple',
     )
 ]
